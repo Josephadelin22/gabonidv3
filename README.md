@@ -1,73 +1,200 @@
-# Welcome to your Lovable project
 
-## Project info
+# Gabon ID – Rwanda MVP Phase
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Overview
 
-## How can I edit this code?
+**Gabon ID** is a digital platform initiative designed to modernize access to administrative and consular-related services for Gabonese citizens, especially those living abroad.
 
-There are several ways of editing your application.
+This **Rwanda MVP phase** represents the first practical and functional version of the project. It is intended to demonstrate the concept, validate the technical foundation, and support presentations to institutional stakeholders before moving toward a larger and more complete deployment.
 
-**Use Lovable**
+The platform is envisioned as a **centralized digital gateway** connecting Gabonese citizens in Rwanda with relevant embassy, consular, and administrative services.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Project Goals
 
-**Use your preferred IDE**
+The main goals of this MVP are to:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- introduce the vision of the Gabon ID project;
+- provide a modern and accessible digital interface;
+- demonstrate the technical feasibility of the platform;
+- centralize essential information and service access;
+- build a strong foundation for future institutional expansion.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Core Features
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Depending on the current implementation stage, the MVP may include:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- institutional landing page;
+- service presentation pages;
+- citizen information interface;
+- pre-registration or request modules;
+- admin dashboard;
+- responsive design for desktop and mobile devices;
+- structured frontend architecture for future scalability.
 
-# Step 3: Install the necessary dependencies.
-npm i
+Some modules may still be under development, refinement, or demonstration mode.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## Long-Term Vision
+
+Gabon ID is part of a broader digital transformation effort aimed at improving the relationship between citizens and public institutions.
+
+In future versions, the platform may evolve to include:
+
+- secure digital identity services;
+- digital document vault;
+- citizen profile management;
+- consular assistance features;
+- online applications and service requests;
+- notification and alert systems;
+- secure communication between users and administration.
+
+This Rwanda MVP is therefore an initial strategic step toward a larger digital public service ecosystem.
+
+---
+
+## Project Structure
+
+The project follows a modern web application structure, separating frontend resources, public assets, and backend-related logic where applicable.
+
+```bash
+backend/
+public/
+src/
+.env
+.gitignore
+README.md
+components.json
+eslint.config.js
+index.html
+package-lock.json
+package.json
+postcss.config.js
+tailwind.config.ts
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+vitest.config.ts
+````
+
+---
+
+## Tech Stack
+
+This project is built using modern web technologies such as:
+
+* **React**
+* **TypeScript**
+* **Vite**
+* **Tailwind CSS**
+* **PostCSS**
+* **JavaScript**
+* **HTML**
+* **CSS**
+
+Additional tools and libraries may be integrated as the project evolves.
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR-USERNAME/gabonidv3.git
+cd gabonidv3
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Build for production:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build
+```
 
-**Use GitHub Codespaces**
+Preview the production build:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run preview
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## Development Status
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is currently in its **MVP phase**.
 
-## How can I deploy this project?
+It is mainly intended to:
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+* validate the project concept;
+* support technical and institutional presentations;
+* provide a working prototype;
+* serve as a foundation for future development and deployment.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## Target Audience
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+The platform is primarily intended for:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+* Gabonese citizens living in Rwanda;
+* embassy and consular stakeholders;
+* institutional partners;
+* project administrators and decision-makers.
+
+---
+
+## Future Improvements
+
+Planned future enhancements may include:
+
+* stronger authentication and authorization;
+* real user account management;
+* advanced dashboard capabilities;
+* multilingual support;
+* backend API expansion;
+* secure document handling;
+* deployment to production infrastructure;
+* integration with official government or embassy workflows.
+
+---
+
+## Contribution
+
+This repository is currently part of the active development phase of the Gabon ID project.
+
+Contributions, technical improvements, and structural suggestions may be integrated according to the project roadmap and strategic direction.
+
+---
+
+## Author
+
+**Joseph Boussamba Quenum**
+Technical Lead / Software Engineer
+Project: **Gabon ID – Rwanda MVP Phase**
+
+---
+
+## License
+
+This project is currently under private development status.
+
+A formal license may be added in future versions depending on the official framework and deployment strategy of the project.
+
+
