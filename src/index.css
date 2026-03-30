@@ -1,0 +1,590 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Gabon ID - Style Guide Officiel */
+    --background: 0 0% 96%; /* Blanc Kaolin #F5F5F5 */
+    --foreground: 220 100% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 100% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 100% 7%;
+
+    /* Bleu Souverain (#002366) */
+    --primary: 220 100% 20%;
+    --primary-foreground: 0 0% 96%;
+
+    /* Jaune Solaire (#FCD116) */
+    --secondary: 49 97% 54%;
+    --secondary-foreground: 220 100% 10%;
+
+    /* Vert Émeraude (#009B77) */
+    --accent: 163 100% 30%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 220 15% 88%;
+    --muted-foreground: 220 15% 40%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 85%;
+    --input: 220 15% 90%;
+    --ring: 49 97% 54%;
+
+    --radius: 0.875rem;
+
+    /* Custom Gabon ID tokens */
+    --navy-deep: 220 100% 7%;
+    --navy-medium: 220 80% 14%;
+    --navy-light: 220 60% 22%;
+    --gold: 43 65% 52%; /* Or Noble #D4AF37 */
+    --gold-light: 43 75% 62%;
+    --gold-dark: 43 55% 40%;
+    --jaune-solaire: 49 97% 54%; /* #FCD116 */
+    --jaune-solaire-light: 49 97% 68%;
+    --emerald: 163 100% 30%; /* #009B77 */
+    --emerald-light: 163 80% 45%;
+    --emerald-dark: 163 100% 20%;
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(0, 35, 102, 0.08);
+    --glass-border: rgba(212, 175, 55, 0.2);
+    --glass-blur: 20px;
+    
+    /* Gradients */
+    --gradient-sovereign: linear-gradient(145deg, hsl(220 100% 7%) 0%, hsl(220 80% 12%) 50%, hsl(163 60% 8%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 65% 52%) 0%, hsl(43 55% 40%) 100%);
+    --gradient-solaire: linear-gradient(135deg, hsl(49 97% 54%) 0%, hsl(43 65% 52%) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(0, 35, 102, 0.06) 0%, rgba(0, 155, 119, 0.04) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+    
+    /* Shadows */
+    --shadow-gold: 0 4px 30px -5px hsla(43, 65%, 52%, 0.3);
+    --shadow-card: 0 8px 32px -8px hsla(220, 100%, 5%, 0.12);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+    --shadow-sos: 0 0 50px -5px hsla(0, 72%, 51%, 0.6);
+
+    --sidebar-background: 220 100% 7%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 43 65% 52%;
+    --sidebar-primary-foreground: 220 100% 10%;
+    --sidebar-accent: 220 60% 15%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 220 30% 18%;
+    --sidebar-ring: 43 65% 52%;
+  }
+
+  /* Dark mode - triggered by .dark on html */
+  .dark {
+    --background: 220 100% 7%;
+    --foreground: 0 0% 96%;
+    --card: 220 40% 10%;
+    --card-foreground: 0 0% 96%;
+    --popover: 220 40% 10%;
+    --popover-foreground: 0 0% 96%;
+    --muted: 220 30% 15%;
+    --muted-foreground: 220 15% 55%;
+    --border: 220 30% 18%;
+    --input: 220 30% 12%;
+    --glass-bg: rgba(0, 35, 102, 0.15);
+    --glass-border: rgba(212, 175, 55, 0.2);
+    --gradient-card: linear-gradient(145deg, rgba(0, 35, 102, 0.3) 0%, rgba(0, 155, 119, 0.1) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --shadow-card: 0 8px 32px -8px hsla(220, 100%, 5%, 0.8);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  /* Dark mode for sovereign screens (auth, landing) */
+  .sovereign-dark {
+    --background: 220 100% 7%;
+    --foreground: 0 0% 96%;
+    --card: 220 40% 10%;
+    --card-foreground: 0 0% 96%;
+    --popover: 220 40% 10%;
+    --popover-foreground: 0 0% 96%;
+    --muted: 220 30% 15%;
+    --muted-foreground: 220 15% 55%;
+    --border: 220 30% 18%;
+    --input: 220 30% 12%;
+    --glass-bg: rgba(0, 35, 102, 0.15);
+    --glass-border: rgba(212, 175, 55, 0.2);
+    --gradient-card: linear-gradient(145deg, rgba(0, 35, 102, 0.3) 0%, rgba(0, 155, 119, 0.1) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --shadow-card: 0 8px 32px -8px hsla(220, 100%, 5%, 0.8);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .gabon-gradient {
+    background: var(--gradient-sovereign);
+  }
+
+  .gold-gradient {
+    background: var(--gradient-gold);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-card {
+    background: linear-gradient(135deg, rgba(0, 35, 102, 0.08) 0%, rgba(0, 155, 119, 0.04) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .sovereign-dark .glass-card {
+    background: linear-gradient(135deg, rgba(0, 35, 102, 0.25) 0%, rgba(0, 155, 119, 0.1) 100%);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-surface {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 35, 102, 0.08);
+  }
+
+  .sovereign-dark .glass-surface {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Imigongo Watermark Pattern (Rwanda geometric art - 5% opacity) */
+  .imigongo-pattern {
+    position: relative;
+  }
+
+  .imigongo-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      /* Geometric diamond/zigzag pattern inspired by Imigongo art */
+      linear-gradient(45deg, transparent 48%, hsla(43, 65%, 52%, 0.05) 48%, hsla(43, 65%, 52%, 0.05) 52%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, hsla(43, 65%, 52%, 0.05) 48%, hsla(43, 65%, 52%, 0.05) 52%, transparent 52%),
+      linear-gradient(45deg, transparent 73%, hsla(220, 100%, 20%, 0.03) 73%, hsla(220, 100%, 20%, 0.03) 77%, transparent 77%),
+      linear-gradient(-45deg, transparent 73%, hsla(220, 100%, 20%, 0.03) 73%, hsla(220, 100%, 20%, 0.03) 77%, transparent 77%);
+    background-size: 60px 60px;
+    pointer-events: none;
+    opacity: 1;
+    z-index: 0;
+  }
+
+  .blockchain-mesh {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blockchain-mesh::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 30%, hsla(43, 65%, 52%, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, hsla(163, 100%, 30%, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Coat of Arms Watermark */
+  .coat-of-arms {
+    position: relative;
+  }
+
+  .coat-of-arms::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23D4AF37' stroke-width='1' opacity='0.1'/%3E%3Cpath d='M50 10 L55 30 L75 30 L60 42 L67 62 L50 50 L33 62 L40 42 L25 30 L45 30 Z' fill='none' stroke='%23D4AF37' stroke-width='0.5' opacity='0.08'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='%23009B77' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* Blockchain document border - Gabonese wood sculpture style */
+  .blockchain-border {
+    border: 2px solid transparent;
+    border-image: repeating-linear-gradient(
+      90deg,
+      hsl(43, 65%, 52%) 0px,
+      hsl(43, 55%, 40%) 4px,
+      hsl(163, 100%, 30%) 4px,
+      hsl(163, 100%, 25%) 8px,
+      hsl(43, 65%, 52%) 8px,
+      hsl(43, 75%, 62%) 12px
+    ) 2;
+  }
+
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+
+  .text-emerald {
+    color: hsl(var(--emerald));
+  }
+
+  .text-jaune {
+    color: hsl(var(--jaune-solaire));
+  }
+
+  .text-gold-gradient {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+
+  .bg-navy-deep {
+    background-color: hsl(var(--navy-deep));
+  }
+
+  .bg-navy-medium {
+    background-color: hsl(var(--navy-medium));
+  }
+
+  .glow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .glow-sos {
+    box-shadow: var(--shadow-sos);
+    animation: drum-pulse-sos 1.2s ease-in-out infinite;
+  }
+
+  /* SOS - Drum Beat Pulse (Ingoma/Ngoma) */
+  @keyframes drum-pulse-sos {
+    0% {
+      box-shadow: 0 0 20px -5px hsla(0, 72%, 51%, 0.4);
+      transform: scale(1);
+    }
+    15% {
+      box-shadow: 0 0 50px -5px hsla(0, 72%, 51%, 0.9);
+      transform: scale(1.03);
+    }
+    30% {
+      box-shadow: 0 0 25px -5px hsla(0, 72%, 51%, 0.5);
+      transform: scale(1);
+    }
+    45% {
+      box-shadow: 0 0 40px -5px hsla(0, 72%, 51%, 0.7);
+      transform: scale(1.02);
+    }
+    60% {
+      box-shadow: 0 0 20px -5px hsla(0, 72%, 51%, 0.4);
+      transform: scale(1);
+    }
+    100% {
+      box-shadow: 0 0 20px -5px hsla(0, 72%, 51%, 0.4);
+      transform: scale(1);
+    }
+  }
+
+  /* Biometric Scan - Solar Ring (Rwanda sun) */
+  @keyframes solar-ring-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .solar-ring {
+    position: relative;
+  }
+
+  .solar-ring::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: hsl(49, 97%, 54%);
+    border-right-color: hsl(43, 65%, 52%);
+    animation: solar-ring-spin 1.5s linear infinite;
+  }
+
+  .solar-ring::after {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: hsl(49, 97%, 54%);
+    border-left-color: hsla(43, 65%, 52%, 0.5);
+    animation: solar-ring-spin 2.5s linear infinite reverse;
+  }
+
+  /* Solar rays for biometric scan */
+  @keyframes solar-rays {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.15);
+    }
+  }
+
+  /* Blockchain Weaving Animation (Agaseke basket) */
+  @keyframes weave-block {
+    0% {
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+    25% {
+      clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    }
+    50% {
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    }
+    75% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+    }
+    100% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+
+  .animate-weave {
+    animation: weave-block 1.5s ease-out forwards;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Blockchain Chain Animation */
+  @keyframes blockchain-chain {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes blockchain-pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes node-connect {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-blockchain-chain {
+    animation: blockchain-chain 2s ease-out forwards;
+  }
+
+  .animate-blockchain-pulse {
+    animation: blockchain-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-node-connect {
+    animation: node-connect 0.6s ease-out forwards;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(49, 97%, 54%, 0.3) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Biometric scan line with solar gradient */
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  .biometric-scan::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, hsl(var(--jaune-solaire)), hsl(var(--gold)), transparent);
+    animation: scan 2s ease-in-out infinite;
+  }
+
+  /* Network mesh pattern */
+  .network-pattern {
+    background-image: 
+      radial-gradient(circle at 1px 1px, hsla(43, 65%, 52%, 0.2) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  /* Loading bar animation */
+  @keyframes loading-progress {
+    0% { width: 0%; }
+    20% { width: 20%; }
+    50% { width: 60%; }
+    80% { width: 85%; }
+    100% { width: 100%; }
+  }
+
+  .loading-bar {
+    animation: loading-progress 3s ease-out forwards;
+  }
+
+  /* Countdown circle animation */
+  @keyframes countdown-pulse {
+    0%, 100% { stroke-opacity: 0.8; }
+    50% { stroke-opacity: 1; }
+  }
+
+  .countdown-circle {
+    animation: countdown-pulse 2s ease-in-out infinite;
+  }
+
+  /* State footer */
+  .state-footer {
+    @apply text-xs text-center py-4 px-6;
+    @apply border-t;
+    border-color: hsla(43, 65%, 52%, 0.2);
+    background-color: hsla(220, 100%, 7%, 0.03);
+    color: hsla(43, 65%, 52%, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .sovereign-dark .state-footer {
+    background-color: hsla(220, 100%, 7%, 0.5);
+    color: hsla(43, 65%, 52%, 0.6);
+  }
+
+  /* SOS border pulse for full screen alert */
+  @keyframes sos-border-flash {
+    0%, 100% {
+      box-shadow: inset 0 0 0 0 transparent;
+    }
+    15% {
+      box-shadow: inset 0 0 0 3px hsla(0, 72%, 51%, 0.6);
+    }
+    30% {
+      box-shadow: inset 0 0 0 0 transparent;
+    }
+    45% {
+      box-shadow: inset 0 0 0 2px hsla(0, 72%, 51%, 0.4);
+    }
+    60% {
+      box-shadow: inset 0 0 0 0 transparent;
+    }
+  }
+
+  .sos-border-pulse {
+    animation: sos-border-flash 3s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
