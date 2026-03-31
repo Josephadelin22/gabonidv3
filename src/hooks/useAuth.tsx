@@ -128,6 +128,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signIn = async (email: string, password: string) => {
     try {
+      console.log("API_BASE_URL =", API_BASE_URL);
+
       const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
@@ -139,7 +141,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }),
       });
 
+      console.log("response.status =", response.status);
+      console.log("response.ok =", response.ok);
+
       const data = await response.json();
+      console.log("response.data =", data);
 
       if (!response.ok) {
         return {
@@ -156,13 +162,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       return { error: null };
     } catch (error: any) {
+      console.error("signIn fetch error =", error);
       return {
         error: {
           message: error.message || "Erreur réseau",
         },
       };
-    }
-  };
+  }
+};
 
   const signOut = async () => {
     localStorage.removeItem("token");

@@ -9,16 +9,25 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:8080",
+    origin: ["http://localhost:8080", "http://localhost:8081"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 app.use(express.json());
+
+console.log("DB_HOST =", process.env.DB_HOST);
+console.log("DB_PORT =", process.env.DB_PORT);
+console.log("DB_USER =", process.env.DB_USER);
+console.log("DB_NAME =", process.env.DB_NAME);
+console.log("DB_PASSWORD loaded =", !!process.env.DB_PASSWORD);
 
 const pool = new Pool({
   host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
+  port: Number(process.env.DB_PORT),
   user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
+  password: process.env.DB_PASSWORD?.trim(),
   database: process.env.DB_NAME,
 });
 
@@ -162,9 +171,12 @@ app.post("/auth/login", async (req, res) => {
 
     return res.json({ token, user, role });
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Erreur serveur" });
-  }
+    console.error("LOGIN ERROR:", error);
+    return res.status(500).json({
+      error: "Erreur serveur",
+      details: error.message,
+    });
+}
 });
 
 // Restaurer la session
