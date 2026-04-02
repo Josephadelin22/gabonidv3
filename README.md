@@ -189,6 +189,7 @@ Contributions, technical improvements, and structural suggestions may be integra
 Technical Lead / Software Engineer
 Project: **Gabon ID – Rwanda MVP Phase**
 
+my company: https://inov-e-tech.com/
 ---
 
 ## License
