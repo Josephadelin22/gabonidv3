@@ -1,201 +1,90 @@
+# Gabon ID (V3) - Le Terminal Numérique du Citoyen Gabonais
 
-# Gabon ID – Rwanda MVP Phase
+![Gabon ID Banner](public/og-image.png) <!-- Optionnel: lien vers une capture d'écran du projet -->
 
-## Overview
+**Gabon ID** est une plateforme gouvernementale dématérialisée visant à offrir aux citoyens gabonais un accès sécurisé, rapide et centralisé à leurs services consulaires et identitaires. 
 
-**Gabon ID** is a digital platform initiative designed to modernize access to administrative and consular-related services for Gabonese citizens, especially those living abroad.
-
-This **Rwanda MVP phase** represents the first practical and functional version of the project. It is intended to demonstrate the concept, validate the technical foundation, and support presentations to institutional stakeholders before moving toward a larger and more complete deployment.
-
-The platform is envisioned as a **centralized digital gateway** connecting Gabonese citizens in Rwanda with relevant embassy, consular, and administrative services.
+Ce projet a été conçu pour digitaliser la relation entre le citoyen, l'Ambassade et les différentes institutions de l'État (DGDI, ANBG, etc.).
 
 ---
 
-## Project Goals
+## ⚖️ Protection Intellectuelle & Droits d'Auteur
 
-The main goals of this MVP are to:
-
-- introduce the vision of the Gabon ID project;
-- provide a modern and accessible digital interface;
-- demonstrate the technical feasibility of the platform;
-- centralize essential information and service access;
-- build a strong foundation for future institutional expansion.
+> **AVERTISSEMENT LÉGAL**
+> Ce système informatique, son architecture, son code source, ainsi que ses interfaces graphiques sont la propriété exclusive de **INOV E-TECH .L LTD** (dirigée par Joseph BOUSSAMBA QUENUM).
+> 
+> **Le projet a fait l'objet d'un dépôt de protection intellectuelle formel.** 
+> Toute reproduction, distribution, copie partielle ou totale, ou utilisation non autorisée par écrit de la part d'INOV E-TECH .L LTD constitue une violation des droits d'auteur et s'expose à des poursuites judiciaires conformément aux lois internationales en vigueur sur la Propriété Intellectuelle.
 
 ---
 
-## Core Features
+## 🎯 Fonctionnalités Principales
 
-Depending on the current implementation stage, the MVP may include:
+### 1. Espace Citoyen (Dashboard)
+- **Vérification d'Identité :** Lien avec la DGDI (GAB-2024-XXXXXX).
+- **Check-in Semestriel :** Registre numérisé de présence et de confirmation de résidence pour la diaspora.
+- **Coffre-fort Sécurisé :** Stockage des documents officiels (actes, certificats) avec certification numérique.
+- **Urgence & Sécurité (Bouton SOS) :** Interface pour déclencher une alerte géolocalisée d'urgence envoyée directement à l'Ambassade.
+- **Services Académiques :** Connexion directe avec les services de l'ANBG (Bourses et Stages).
 
-- institutional landing page;
-- service presentation pages;
-- citizen information interface;
-- pre-registration or request modules;
-- admin dashboard;
-- responsive design for desktop and mobile devices;
-- structured frontend architecture for future scalability.
-
-Some modules may still be under development, refinement, or demonstration mode.
-
----
-
-## Long-Term Vision
-
-Gabon ID is part of a broader digital transformation effort aimed at improving the relationship between citizens and public institutions.
-
-In future versions, the platform may evolve to include:
-
-- secure digital identity services;
-- digital document vault;
-- citizen profile management;
-- consular assistance features;
-- online applications and service requests;
-- notification and alert systems;
-- secure communication between users and administration.
-
-This Rwanda MVP is therefore an initial strategic step toward a larger digital public service ecosystem.
+### 2. L'Œil de l'Ambassade (Portail Administratif)
+- **Tableau de Bord :** Statistiques en direct sur la diaspora (répartition géographique, validité des passeports).
+- **Gestion des SOS :** Interface d'intervention rapide pour les urgences signalées par les citoyens (GPS, groupe sanguin, contact).
+- **Validation des Documents :** Outil de certification numérique (génération de hash SHA-256) pour authentifier les documents légaux.
+- **Recensement :** Validation des check-ins semestriels.
 
 ---
 
-## Project Structure
+## 🛠 Architecture & Technologies
 
-The project follows a modern web application structure, separating frontend resources, public assets, and backend-related logic where applicable.
+Le projet repose sur une architecture moderne de type **Serverless / BaaS (Backend as a Service)** :
 
-```bash
-backend/
-public/
-src/
-.env
-.gitignore
-README.md
-components.json
-eslint.config.js
-index.html
-package-lock.json
-package.json
-postcss.config.js
-tailwind.config.ts
-tsconfig.app.json
-tsconfig.json
-tsconfig.node.json
-vite.config.ts
-vitest.config.ts
-````
+- **Frontend :** 
+  - [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+  - [TypeScript](https://www.typescriptlang.org/) (Typage fort)
+  - [Tailwind CSS](https://tailwindcss.com/) (Stylisation et animations fluides)
+  - Composants UI inspirés de `shadcn/ui` (Radix)
+- **Backend & Base de Données :** 
+  - [Supabase](https://supabase.com/) (PostgreSQL)
+  - **Authentification :** Gestion des sessions via Supabase Auth (séparation Citoyens / Administration).
+  - **RLS (Row Level Security) :** Sécurisation fine des données directement dans la base de données PostgreSQL.
 
 ---
 
-## Tech Stack
+## 🚀 Installation & Lancement en local
 
-This project is built using modern web technologies such as:
+1. **Cloner le projet**
+   ```bash
+   git clone <url_du_depot>
+   cd gabonidv3
+   ```
 
-* **React**
-* **TypeScript**
-* **Vite**
-* **Tailwind CSS**
-* **PostCSS**
-* **JavaScript**
-* **HTML**
-* **CSS**
+2. **Installer les dépendances**
+   ```bash
+   npm install
+   ```
 
-Additional tools and libraries may be integrated as the project evolves.
+3. **Configurer les variables d'environnement**
+   Créez un fichier `.env` à la racine du projet et ajoutez vos clés Supabase :
+   ```env
+   VITE_SUPABASE_URL=votre_url_supabase
+   VITE_SUPABASE_ANON_KEY=votre_cle_anon_supabase
+   ```
 
----
+4. **Configurer la base de données (Supabase)**
+   Exécutez le script SQL `supabase_setup.sql` situé à la racine du projet dans l'éditeur SQL de votre Dashboard Supabase pour créer les tables et les règles de sécurité.
 
-## Installation
+5. **Démarrer l'application**
+   ```bash
+   npm run dev
+   ```
+   L'application sera accessible sur le port défini par Vite (ex: `http://localhost:8080`).
 
-Clone the repository:
+## 👨‍💻 Équipe & Crédits
 
-```bash
-git clone https://github.com/YOUR-USERNAME/gabonidv3.git
-cd gabonidv3
-```
+* **Développeur Principal & Architecte :** BOUSSAMBA QUENUM Joseph
+* **Société Propriétaire :** INOV E-TECH .L LTD
+* **Site Web :** [https://inov-e-tech.com/](https://inov-e-tech.com/)
+* **Année :** 2026
 
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run the development server:
-
-```bash
-npm run dev
-```
-
-Build for production:
-
-```bash
-npm run build
-```
-
-Preview the production build:
-
-```bash
-npm run preview
-```
-
----
-
-## Development Status
-
-This project is currently in its **MVP phase**.
-
-It is mainly intended to:
-
-* validate the project concept;
-* support technical and institutional presentations;
-* provide a working prototype;
-* serve as a foundation for future development and deployment.
-
----
-
-## Target Audience
-
-The platform is primarily intended for:
-
-* Gabonese citizens living in Rwanda;
-* embassy and consular stakeholders;
-* institutional partners;
-* project administrators and decision-makers.
-
----
-
-## Future Improvements
-
-Planned future enhancements may include:
-
-* stronger authentication and authorization;
-* real user account management;
-* advanced dashboard capabilities;
-* multilingual support;
-* backend API expansion;
-* secure document handling;
-* deployment to production infrastructure;
-* integration with official government or embassy workflows.
-
----
-
-## Contribution
-
-This repository is currently part of the active development phase of the Gabon ID project.
-
-Contributions, technical improvements, and structural suggestions may be integrated according to the project roadmap and strategic direction.
-
----
-
-## Author
-
-**Joseph Boussamba Quenum**
-Technical Lead / Software Engineer
-Project: **Gabon ID – Rwanda MVP Phase**
-
-my company: https://inov-e-tech.com/
----
-
-## License
-
-This project is currently under private development status.
-
-A formal license may be added in future versions depending on the official framework and deployment strategy of the project.
-
-
+*Pour toute demande professionnelle ou technique, veuillez contacter INOV E-TECH .L LTD.*
