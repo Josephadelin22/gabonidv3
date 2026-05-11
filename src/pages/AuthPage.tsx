@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GabonLogo } from "@/components/GabonLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,7 +17,20 @@ export default function AuthPage() {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
-  const { signIn, signUp } = useAuth();
+  const { user, userRole, loading: authLoading, signIn, signUp, signOut } = useAuth();
+
+  // Redirect based on role or reject administration
+  useEffect(() => {
+    if (!authLoading && user && userRole) {
+      if (userRole === "admin" || userRole === "ambassador") {
+        // Reject admins/ambassadors from citizen portal
+        signOut();
+        setError("Accès refusé. Veuillez utiliser le portail de l'administration.");
+      } else {
+        navigate("/dashboard");
+      }
+    }
+  }, [user, userRole, authLoading, navigate, signOut]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,8 +44,6 @@ export default function AuthPage() {
         setError(error.message === "Invalid login credentials" 
           ? "Identifiants incorrects. Vérifiez votre email et mot de passe."
           : error.message);
-      } else {
-        navigate("/dashboard");
       }
     } else {
       if (!fullName.trim()) {

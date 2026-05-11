@@ -17,7 +17,7 @@ export default function Index() {
         <div className="space-y-8 animate-fade-in max-w-md">
           {/* Logo */}
           <GabonLogo size="xl" />
-          
+
           {/* Tagline */}
           <div className="space-y-3">
             <h2 className="text-xl font-medium text-foreground/90">
@@ -71,11 +71,11 @@ export default function Index() {
           <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-gold/30" />
         </div>
         <p className="text-xs text-muted-foreground">
-           2026 Gabon-connect 
+          2026 GabonID
         </p>
         <div className="flex items-center justify-center gap-1">
           <p className="text-xs text-gold/50">
-            Sécurisé par BOUSSAMBA QUENUM Joseph - Développeur Fullstack
+            Developper et Securiser par Inov e-tech .l ltd
           </p>
           {/* Hidden ambassador access - tiny lock icon */}
           <button
