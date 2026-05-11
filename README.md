@@ -11,7 +11,7 @@ Ce projet a été conçu pour digitaliser la relation entre le citoyen, l'Ambass
 ## ⚖️ Protection Intellectuelle & Droits d'Auteur
 
 > **AVERTISSEMENT LÉGAL**
-> Ce système informatique, son architecture, son code source, ainsi que ses interfaces graphiques sont la propriété exclusive de **INOV E-TECH .L LTD** (dirigée par Joseph BOUSSAMBA QUENUM).
+> Ce système informatique, son architecture, son code source, ainsi que ses interfaces graphiques sont la propriété exclusive de **INOV E-TECH .L LTD** (dirigée par Joseph BOUSSAMBA QUENUM CTO of Inov e-tech .l ltd).
 > 
 > **Le projet a fait l'objet d'un dépôt de protection intellectuelle formel.** 
 > Toute reproduction, distribution, copie partielle ou totale, ou utilisation non autorisée par écrit de la part d'INOV E-TECH .L LTD constitue une violation des droits d'auteur et s'expose à des poursuites judiciaires conformément aux lois internationales en vigueur sur la Propriété Intellectuelle.
@@ -82,9 +82,10 @@ Le projet repose sur une architecture moderne de type **Serverless / BaaS (Backe
 
 ## 👨‍💻 Équipe & Crédits
 
-* **Développeur Principal & Architecte :** BOUSSAMBA QUENUM Joseph
+* **Développeur Principal & Architecte :** BOUSSAMBA QUENUM Joseph Et LANDJI NDJOUBI WARREN TERRY
 * **Société Propriétaire :** INOV E-TECH .L LTD
 * **Site Web :** [https://inov-e-tech.com/](https://inov-e-tech.com/)
 * **Année :** 2026
 
 *Pour toute demande professionnelle ou technique, veuillez contacter INOV E-TECH .L LTD.*
+inovetechl073@gmail.com
