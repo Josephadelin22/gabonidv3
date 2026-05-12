@@ -6,6 +6,8 @@
 
 Ce projet a été conçu pour digitaliser la relation entre le citoyen, l'Ambassade et les différentes institutions de l'État (DGDI, ANBG, etc.).
 
+COPYRIGHT NUMBER: RW/C/2026/54
+
 ---
 
 ## ⚖️ Protection Intellectuelle & Droits d'Auteur
@@ -30,7 +32,7 @@ Ce projet a été conçu pour digitaliser la relation entre le citoyen, l'Ambass
 ### 2. L'Œil de l'Ambassade (Portail Administratif)
 - **Tableau de Bord :** Statistiques en direct sur la diaspora (répartition géographique, validité des passeports).
 - **Gestion des SOS :** Interface d'intervention rapide pour les urgences signalées par les citoyens (GPS, groupe sanguin, contact).
-- **Validation des Documents :** Outil de certification numérique (génération de hash SHA-256) pour authentifier les documents légaux.
+- **Validation des Documents :** Outil de certification numérique (génération de hash ) pour authentifier les documents légaux.
 - **Recensement :** Validation des check-ins semestriels.
 
 ---
@@ -82,9 +84,9 @@ Le projet repose sur une architecture moderne de type **Serverless / BaaS (Backe
 
 ## 👨‍💻 Équipe & Crédits
 
-* **Développeur Principal & Architecte :** BOUSSAMBA QUENUM Joseph Et LANDJI NDJOUBI WARREN TERRY
+* **Développeur Principal & Architecte :** BOUSSAMBA QUENUM Joseph Et LANDJI-NDJOUBI WARENN-TERRY
 * **Société Propriétaire :** INOV E-TECH .L LTD
-* **Site Web :** [https://inov-e-tech.com/](https://inov-e-tech.com/)
+* **Site Web :** [(https://inov-e-tech.com/)]
 * **Année :** 2026
 
 *Pour toute demande professionnelle ou technique, veuillez contacter INOV E-TECH .L LTD.*
